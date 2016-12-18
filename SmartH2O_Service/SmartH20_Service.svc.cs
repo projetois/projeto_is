@@ -16,7 +16,7 @@ namespace SmartH2O_Service
     {
         public string saveAndFormatData(string data)
         {
-            return "teafsasdsasad";
+            return "cenas";
         }
 
         private void verifyParamOrAlarm(XmlDocument xml)
