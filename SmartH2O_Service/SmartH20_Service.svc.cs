@@ -17,7 +17,7 @@ namespace SmartH2O_Service
         public string saveAndFormatData(string data)
         {
            
-            return "test";
+            return "teafsasdsasad";
             //Verificar se XML recebido tem elemento "message" para distinguir ficheiro datauploader ou ficheiro alarme
 
             
