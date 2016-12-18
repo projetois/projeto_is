@@ -16,21 +16,27 @@ namespace SmartH2O_Service
     {
         public string saveAndFormatData(string data)
         {
-            return "cenas";
+           
+            return verifyParamOrAlarm(data);
         }
 
-        private void verifyParamOrAlarm(XmlDocument xml)
+        private string verifyParamOrAlarm(string xml)
         {
-            XmlNodeList message = xml.GetElementsByTagName("message");
-           // File.AppendAllText(Directory.GetCurrentDirectory() + "\\" + filename, data);
-            /* if (message.Count == 0)
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            XmlNodeList message = doc.GetElementsByTagName("message");
+            string path = "";
+            if (message.Count == 0)
              {
-                 return "param";
+                path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\params-data.xml");
              }
              else
              {
-                 return "alarm";
-             }*/
+                path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\alarms-data.xml");
+                
+             }
+
+            return path;
         } 
     }
 
