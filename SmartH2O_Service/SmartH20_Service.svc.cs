@@ -14,48 +14,55 @@ namespace SmartH2O_Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class SmartH2O_Service : DLogger
     {
-        private string path ="test0";
-        private string xmltest;
+
+        private XmlNode alarmXml;
+        private XmlNode paramXml;
+        private string path;
 
         public void saveAndFormatData(string data)
         {
             verifyParamOrAlarm(data);
         }
 
-       
+        public string showTest()
+        {
+            return path;
+        }
 
         private void verifyParamOrAlarm(string xml)
         {
             XmlDocument doc = new XmlDocument();
+            XmlDocument docXml = new XmlDocument();
             doc.LoadXml(xml);
+            string path = "";
             XmlNodeList message = doc.GetElementsByTagName("message");
             if (message.Count == 0)
-             {
+            {
+                //Se não tiver element "message" então é param-data
                 path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\params-data.xml");
-                if (path == null || path == String.Empty)
+                if (!File.Exists(path))
                 {
-                    path = "test1";
+                    //paramXml = docXml.CreateElement("sensors");
+                    // param
+                    path = "test5";
+
+                } else
+                {
+                    path = "test6";
                 }
-                
-             }
-             else
-             {
+
+            }
+            else
+            {
                 path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\alarms-data.xml");
                 if (path == null || path == String.Empty)
                 {
                     path = "test2";
                 }
-            }
-
-            xmltest = xml;
-
-            
+            } 
         }
 
-        public string showTest()
-        {
-            return xmltest;
-        }
+     
     }
 
 
