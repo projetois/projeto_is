@@ -24,17 +24,13 @@ namespace SmartH2O_Service
             verifyParamOrAlarm(data);
         }
 
-        public string showTest()
-        {
-            return path;
-        }
+       
 
         private void verifyParamOrAlarm(string xml)
         {
             XmlDocument doc = new XmlDocument();
             XmlDocument docXml = new XmlDocument();
             doc.LoadXml(xml);
-            string path = "";
             XmlNodeList message = doc.GetElementsByTagName("message");
             if (message.Count == 0)
             {
@@ -62,7 +58,12 @@ namespace SmartH2O_Service
             } 
         }
 
-     
+        public string showTest()
+        {
+            return path;
+        }
+
+
     }
 
 
