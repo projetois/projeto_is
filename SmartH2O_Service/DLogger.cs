@@ -14,7 +14,10 @@ namespace SmartH2O_Service
     {
 
         [OperationContract]
-        void saveAndFormatData(string data);
+        string saveAndFormatData(string data);
+
+        [OperationContract]
+        string verifyParamOrAlarm(string xml);
 
         [OperationContract]
         string showTest();

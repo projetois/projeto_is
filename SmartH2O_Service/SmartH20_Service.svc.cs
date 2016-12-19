@@ -19,14 +19,14 @@ namespace SmartH2O_Service
         private XmlNode paramXml;
         private string path ="notinitialized";
 
-        public void saveAndFormatData(string data)
+        public string saveAndFormatData(string data)
         {
-            verifyParamOrAlarm(data);
+            return verifyParamOrAlarm(data);
         }
 
        
 
-        private void verifyParamOrAlarm(string xml)
+        public string verifyParamOrAlarm(string xml)
         {
             XmlDocument doc = new XmlDocument();
             XmlDocument docXml = new XmlDocument();
@@ -62,7 +62,8 @@ namespace SmartH2O_Service
                 {
                     path = "testmessage=1 path ==";
                 }
-            } 
+            }
+            return path;
         }
 
         public string showTest()
