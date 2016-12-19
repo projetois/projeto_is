@@ -17,7 +17,7 @@ namespace SmartH2O_Service
 
         private XmlNode alarmXml;
         private XmlNode paramXml;
-        private string path;
+        private string path ="notinitialized";
 
         public void saveAndFormatData(string data)
         {
@@ -51,9 +51,16 @@ namespace SmartH2O_Service
             else
             {
                 path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\alarms-data.xml");
-                if (path == null || path == String.Empty)
+                if (!File.Exists(path))
                 {
-                    path = "test2";
+                    //paramXml = docXml.CreateElement("sensors");
+                    // param
+                    path = "testmessage=1 path !=";
+
+                }
+                else
+                {
+                    path = "testmessage=1 path ==";
                 }
             } 
         }
