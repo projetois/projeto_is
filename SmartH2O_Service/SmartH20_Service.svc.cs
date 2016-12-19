@@ -15,6 +15,7 @@ namespace SmartH2O_Service
     public class SmartH2O_Service : DLogger
     {
         private string path;
+        private string xmltest;
 
         public void saveAndFormatData(string data)
         {
@@ -30,17 +31,23 @@ namespace SmartH2O_Service
             XmlNodeList message = doc.GetElementsByTagName("message");
             if (message.Count == 0)
              {
-                // path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\params-data.xml");
-                
+                path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\params-data.xml");
+                if (path == null || path == String.Empty)
+                {
+                    path = "test1";
+                }
                 
              }
              else
              {
-                // path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\alarms-data.xml");
-               
+                path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\alarms-data.xml");
+                if (path == null || path == String.Empty)
+                {
+                    path = "test2";
+                }
             }
 
-            path = xml;
+            xmltest = xml;
 
             
         }
