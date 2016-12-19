@@ -31,21 +31,22 @@ namespace SmartH2O_Service
             if (message.Count == 0)
              {
                 // path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\params-data.xml");
-                path = "params";
+                
                 
              }
              else
              {
                 // path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\alarms-data.xml");
-                path = "alarms";
+               
             }
+
+            path = xml;
 
             
         }
 
         public string showTest()
         {
-            path = "test";
             return path;
         }
     }
