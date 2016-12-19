@@ -19,16 +19,12 @@ namespace SmartH2O_Service
         public void saveAndFormatData(string data)
         {
 
-            verifyParamOrAlarm(data);
+          verifyParamOrAlarm(data);
         }
 
-        public string showTest()
-        {
+       
 
-            return path;
-        }
-
-        private string verifyParamOrAlarm(string xml)
+        private void verifyParamOrAlarm(string xml)
         {
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml);
@@ -44,9 +40,14 @@ namespace SmartH2O_Service
                 path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\alarms-data.xml");
                 
              }
+            
+        }
+
+        public string showTest()
+        {
 
             return path;
-        } 
+        }
     }
 
 
