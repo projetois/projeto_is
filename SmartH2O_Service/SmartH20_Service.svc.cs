@@ -14,10 +14,13 @@ namespace SmartH2O_Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class SmartH2O_Service : DLogger
     {
-        public string saveAndFormatData(string data)
+        private string path;
+
+        public void saveAndFormatData(string data)
         {
-           
-            return verifyParamOrAlarm(data);
+            
+            path = verifyParamOrAlarm(data);
+            Console.WriteLine(path);
         }
 
         private string verifyParamOrAlarm(string xml)
