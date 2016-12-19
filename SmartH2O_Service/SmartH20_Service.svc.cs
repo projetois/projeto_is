@@ -18,8 +18,7 @@ namespace SmartH2O_Service
 
         public void saveAndFormatData(string data)
         {
-
-          verifyParamOrAlarm(data);
+            verifyParamOrAlarm(data);
         }
 
        
@@ -29,17 +28,18 @@ namespace SmartH2O_Service
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml);
             XmlNodeList message = doc.GetElementsByTagName("message");
-            string path = "";
             if (message.Count == 0)
              {
-                path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\params-data.xml");
+                // path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\params-data.xml");
+                path = "params";
                 
              }
              else
              {
-                path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\alarms-data.xml");
-                
-             }
+                // path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\alarms-data.xml");
+                path = "alarms";
+            }
+
             
         }
 
