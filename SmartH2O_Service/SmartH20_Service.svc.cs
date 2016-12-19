@@ -19,13 +19,18 @@ namespace SmartH2O_Service
 
         public string saveAndFormatData(string data)
         {
-            path = data;
+            File.AppendAllText(Directory.GetCurrentDirectory() + "\\testfile.txt", data);
             return verifyParamOrAlarm(data);
         }
 
         public string showTest()
         {
-            return path;
+            using (StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "\\testfile.txt"))
+            {
+
+                String line = sr.ReadToEnd();
+                return line;
+            }
         }
        
 
