@@ -16,6 +16,9 @@ namespace SmartH2O_Service
         [OperationContract]
         void saveAndFormatData(string data);
 
+        [OperationContract]
+        void showTest();
+
        
         // TODO: Add your service operations here
     }
