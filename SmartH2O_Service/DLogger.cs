@@ -21,7 +21,6 @@ namespace SmartH2O_Service
 
         [OperationContract]
         string showTest();
-
        
         // TODO: Add your service operations here
     }

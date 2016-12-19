@@ -14,16 +14,19 @@ namespace SmartH2O_Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class SmartH2O_Service : DLogger
     {
-
-        private XmlNode alarmXml;
-        private XmlNode paramXml;
-        private string path ="notinitialized";
+        string path  = "notinitialized";
+  
 
         public string saveAndFormatData(string data)
         {
+            path = data;
             return verifyParamOrAlarm(data);
         }
 
+        public string showTest()
+        {
+            return path;
+        }
        
 
         public string verifyParamOrAlarm(string xml)
@@ -48,28 +51,11 @@ namespace SmartH2O_Service
                 }
 
             }
-            else
-            {
-                path = Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"App_Data\alarms-data.xml");
-                if (!File.Exists(path))
-                {
-                    //paramXml = docXml.CreateElement("sensors");
-                    // param
-                    path = "testmessage=1 path !=";
 
-                }
-                else
-                {
-                    path = "testmessage=1 path ==";
-                }
-            }
             return path;
+        
         }
 
-        public string showTest()
-        {
-            return path;
-        }
 
 
     }
