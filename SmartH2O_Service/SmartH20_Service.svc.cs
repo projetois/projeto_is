@@ -45,7 +45,7 @@ namespace SmartH2O_Service
 
         public string showTest()
         {
-
+            path = "test";
             return path;
         }
     }
