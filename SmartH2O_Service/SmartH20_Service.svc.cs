@@ -22,10 +22,10 @@ namespace SmartH2O_Service
             verifyParamOrAlarm(data);
         }
 
-        public void showTest()
+        public string showTest()
         {
-            
-            Console.WriteLine(path);
+
+            return path;
         }
 
         private string verifyParamOrAlarm(string xml)
